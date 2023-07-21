@@ -14,7 +14,6 @@ export default function Home() {
       fetchData();
     }, [])
   
-    console.log(tempData);
   return (
     <>
       <div className='flex flex-wrap'>

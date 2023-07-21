@@ -1,12 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import { InputGroup } from 'react-bootstrap';
 
-export default function CardStore({category,description,image,price,rating,title}) {
+export default function CardStore({category,description,image,price,rating,title, id}) {
+    const navigate = useNavigate()
+    console.log(id);
   return (
     <>
     
     <div className="flex font-sans mb-10 mt-5 ">
-        <div className="flex-none w-48 ml-5 relative">
-            <img style={{width:'300px',height:'300px'}} src={image} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <div className="flex-none w-60 ml-5 relative">
+           
+                <img style={{width:'300px',height:'350px'}} src={image} alt="" className="absolute cursor-pointer inset-0 w-full h-full object-cover" loading="lazy" onClick={()=>navigate(`/detail/${id}`)} />
+            
         </div>
         <form className="flex-auto p-6 ">
             <div className="flex flex-wrap">
@@ -63,6 +69,7 @@ export default function CardStore({category,description,image,price,rating,title
             </div>
             <div className="flex space-x-4 mb-6 text-sm font-medium">
             <div className="flex-auto flex space-x-4">
+            
                 <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit">
                 Buy now
                 </button>

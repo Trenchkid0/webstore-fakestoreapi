@@ -4,7 +4,8 @@ import Login from '../pages/login';
 import Navbars from '../components/Navbar';
 
 import {HomeRoute} from './HomeRoutes';
-import { ElectronicRoute } from './ElectronicRoutes';
+import { SpecificRoute } from './SpecificRoutes';
+import { DetailRoute } from './DetailRoutes';
 import GuestOnlyRoute from '../components/GuestOnly';
 import GuardRoute from '../components/GuardOnly';
 
@@ -36,7 +37,8 @@ export function AppRoutes() {
         >  
         
           <Route path='home/*' element={<HomeRoute />} />
-          <Route path='electronics/*' element={<ElectronicRoute />} /> 
+          <Route path='specific/*' element={<SpecificRoute />} /> 
+          <Route path='detail/*' element={<DetailRoute />} /> 
           <Route path='' element={<Navigate to='/home' replace={true} />} />
         </Route>
       </Routes>
