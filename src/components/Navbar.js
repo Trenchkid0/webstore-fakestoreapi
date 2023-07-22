@@ -41,7 +41,7 @@ export default function Navbars() {
             <Nav.Link href="#pricing">Pricing</Nav.Link>
             <NavDropdown title="Catalogue" id="basic-nav-dropdown">
                 {tempData.map(catologue =>(
-                    <NavDropdown.Item  onClick={()=>navigate(`/specific/${catologue}`)} key={catologue} >{catologue}</NavDropdown.Item>
+                    <NavDropdown.Item  onClick={()=>navigate(`/specific/${catologue}`)}  key={catologue} >{catologue}</NavDropdown.Item>
 
                 ))}
             </NavDropdown>

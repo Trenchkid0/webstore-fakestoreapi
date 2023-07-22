@@ -4,7 +4,6 @@ import { InputGroup } from 'react-bootstrap';
 
 export default function CardStore({category,description,image,price,rating,title, id}) {
     const navigate = useNavigate()
-    console.log(id);
   return (
     <>
     
@@ -24,9 +23,9 @@ export default function CardStore({category,description,image,price,rating,title
                 <div className="text-lg font-semibold text-slate-500 ml-3">
                     ${price}
                 </div>
-                <div className="text-lg font-semibold text-slate-500 ml-3">
+                {/* <div className="text-lg font-semibold text-slate-500 ml-3">
                     {rating.rate}⭐({rating.count})
-                </div>
+                </div> */}
 
             </div>
             <div className="w-full flex-none text-sm font-medium text-slate-700 mt-2">

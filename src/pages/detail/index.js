@@ -15,6 +15,7 @@ export default function Detail() {
          setData(res.data)
       }
       fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     console.log(tempData)

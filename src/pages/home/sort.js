@@ -5,35 +5,39 @@ import CardStore from '../../components/CardStore';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useParams } from 'react-router-dom';
 
-
-export default function Home() {
+export default function Sort() {
     const [tempData, setData] = useState([]);
     const [sort, setSort] = useState(['asc' , 'desc']);
-
-     console.log(sort.ascending)
+    const {sorttype} = useParams()
     const navigate = useNavigate()
 
+    
+
     useEffect(() => {
+      
       const fetchData = async()=>{
-         const res = await axios.get('https://fakestoreapi.com/products')
+         const res = await axios.get(`https://fakestoreapi.com/products?sort=${sorttype}`);
          setData(res.data)
       }
       fetchData();
     }, [])
-    
+
+    console.log(tempData)
 
     const handleSort = (sorting) =>{
-        // sorting.preventDefault()
-        navigate(`/home/${sorting}`)
-        console.log('pss')
-    }
+      // sorting.preventDefault()
+      navigate(`/home/${sorting}`)
+      console.log('pss')
+  }
+   
   
   return (
     <>
-      {/* <option onClick={()=>handleSort('asc')} style={{width:'100px'}}>A-Z</option> */}
+     {/* <option onClick={()=>handleSort('asc')} style={{width:'100px'}}>A-Z</option> */}
     {/* feature */}
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             {sort.map(type => (
                 <NavDropdown.Item onClick={()=> handleSort(type)}>{type}</NavDropdown.Item>
             ))}
@@ -48,6 +52,7 @@ export default function Home() {
         ))}
 
       </div>
+    
     </>
   )
 }
