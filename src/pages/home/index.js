@@ -9,7 +9,14 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function Home() {
     const [tempData, setData] = useState([]);
-    const [sort, setSort] = useState(['asc' , 'desc']);
+    const [sort, setSort] = useState([{
+        key:'asc',
+        value:'A-Z'
+    
+    }, {
+        key:'desc',
+        value:'Z-A'
+    }]);
 
      console.log(sort.ascending)
     const navigate = useNavigate()
@@ -34,8 +41,8 @@ export default function Home() {
       {/* <option onClick={()=>handleSort('asc')} style={{width:'100px'}}>A-Z</option> */}
     {/* feature */}
         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            {sort.map(type => (
-                <NavDropdown.Item onClick={()=> handleSort(type)}>{type}</NavDropdown.Item>
+            {sort.map(({ key, value }) => (
+                <NavDropdown.Item onClick={()=> handleSort( [key])}>{value}</NavDropdown.Item>
             ))}
         </NavDropdown>
       <div className='flex flex-wrap'>
