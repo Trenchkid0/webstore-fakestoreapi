@@ -13,11 +13,11 @@ export default function Electronic() {
       const fetchData = async()=>{
          const res = await axios.get(`https://fakestoreapi.com/products/category/${nameCata}`)
          setData(res.data)
+        //  window.location.reload()
       }
       fetchData();
     }, [])
 
-    console.log(tempData)
   
   return (
     <>

@@ -1,13 +1,24 @@
 import React from 'react'
 import { Anchor } from 'react-bootstrap'
 import { TextInput } from 'flowbite-react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
 export default function Login() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [tempData, setTempData] = useState([]);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const res = await axios.get('https://fakestoreapi.com/users')
+            setTempData(res.data);
+            
+        }
+        fetchUser();
+    }, [])
+    
 
     const [form, setForm] = useState({
         username:'',
@@ -19,10 +30,13 @@ export default function Login() {
     const handleSubmit = async() =>{
         const res = await axios.post('https://fakestoreapi.com/auth/login',form)
         .then(resp=> {
-            resp.status === 200 ? navigate('/home') : navigate('/login')
-            localStorage.setItem('token',resp.data.token);
+            tempData.forEach((dataUser)=>{
+                if(dataUser.username === form.username){
+                    resp.status === 200 ? navigate(`/home/${dataUser.id}`) : navigate('/home')
+                    localStorage.setItem('token',resp.data.token);
+                }
+            })
         })
-       
         
     }
 

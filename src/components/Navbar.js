@@ -11,13 +11,16 @@ import axios from 'axios';
 
 export default function Navbars() {
     const navigate = useNavigate()
+
+    const token =  localStorage.getItem('token');
+    console.log(token)
     
-  const [tempData, setData] = useState([]);
+    const [tempData, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async()=>{
-           const res = await axios.get('https://fakestoreapi.com/products/categories')
-           setData(res.data)
+          const res = await axios.get('https://fakestoreapi.com/products/categories')
+          setData(res.data)
         }
         fetchData();
       }, [])
@@ -25,9 +28,16 @@ export default function Navbars() {
 
       const handleLogOut = ()=>{
         localStorage.removeItem('token')
+        window.location.reload();
       }
+      
+      
 
-    
+    const handleReload = (catologue)=>{
+      
+      navigate(`/specific/${catologue}`)
+      window.location.reload(catologue)
+    }
 
 
   return (
@@ -41,7 +51,7 @@ export default function Navbars() {
             <Nav.Link href="#pricing">Pricing</Nav.Link>
             <NavDropdown title="Catalogue" id="basic-nav-dropdown">
                 {tempData.map(catologue =>(
-                    <NavDropdown.Item  onClick={()=>navigate(`/specific/${catologue}`)}  key={catologue} >{catologue}</NavDropdown.Item>
+                    <NavDropdown.Item onClick={()=>handleReload(catologue)}  key={catologue} >{catologue}</NavDropdown.Item>
 
                 ))}
             </NavDropdown>
