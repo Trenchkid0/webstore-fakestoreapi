@@ -38,9 +38,7 @@ export default function Home() {
   
   return (
     <>
-      {/* <option onClick={()=>handleSort('asc')} style={{width:'100px'}}>A-Z</option> */}
-    {/* feature */}
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown className='grid justify-items-end' title="Dropdown" id="basic-nav-dropdown">
             {sort.map(({ key, value }) => (
                 <NavDropdown.Item onClick={()=> handleSort( [key])}>{value}</NavDropdown.Item>
             ))}

@@ -7,6 +7,7 @@ import CardStore from '../../components/CardStore';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Navbars from '../../components/Navbar';
 
 
 export default function HomeById() {
@@ -30,7 +31,6 @@ export default function HomeById() {
       const fetchData = async()=>{
          const res = await axios.get('https://fakestoreapi.com/products')
          setData(res.data)
-         const resUser = await axios.get(`https://fakestoreapi.com/users/${userId}`).then((res) => setUser(res.data))
 
       }
       fetchData();
@@ -48,7 +48,8 @@ export default function HomeById() {
     <>
       {/* <option onClick={()=>handleSort('asc')} style={{width:'100px'}}>A-Z</option> */}
     {/* feature */}
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+
+        <NavDropdown className='grid justify-items-end' title="Dropdown" id="basic-nav-dropdown">
             {sort.map(({ key, value }) => (
                 <NavDropdown.Item onClick={()=> handleSort( [key])}>{value}</NavDropdown.Item>
             ))}

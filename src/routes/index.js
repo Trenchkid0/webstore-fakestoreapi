@@ -6,6 +6,8 @@ import Navbars from '../components/Navbar';
 import {HomeRoute} from './HomeRoutes';
 import { SpecificRoute } from './SpecificRoutes';
 import { DetailRoute } from './DetailRoutes';
+import { CartRoute } from './CartRoutes';
+
 import GuestOnlyRoute from '../components/GuestOnly';
 import GuardRoute from '../components/GuardOnly';
 
@@ -39,6 +41,7 @@ export function AppRoutes() {
           <Route path='home/*' element={<HomeRoute />} />
           <Route path='specific/*' element={<SpecificRoute />} /> 
           <Route path='detail/*' element={<DetailRoute />} /> 
+          <Route path='cart/*' element={<CartRoute />} /> 
           <Route path='' element={<Navigate to='/home' replace={true} />} />
         </Route>
       </Routes>

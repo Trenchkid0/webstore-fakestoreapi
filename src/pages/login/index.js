@@ -34,6 +34,7 @@ export default function Login() {
                 if(dataUser.username === form.username){
                     resp.status === 200 ? navigate(`/home/${dataUser.id}`) : navigate('/home')
                     localStorage.setItem('token',resp.data.token);
+                    localStorage.setItem('userId',dataUser.id);
                 }
             })
         })

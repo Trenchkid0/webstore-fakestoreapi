@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import CardStore from '../../components/CardStore';
 import { useParams } from 'react-router-dom';
+import Navbars from '../../components/Navbar';
 
 
 export default function Electronic() {
@@ -21,6 +22,7 @@ export default function Electronic() {
   
   return (
     <>
+    <Navbars/>
     <div className='flex flex-wrap'>
 
       {tempData.map(infoStore =>(
