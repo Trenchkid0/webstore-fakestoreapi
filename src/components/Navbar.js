@@ -75,7 +75,7 @@ export default function Navbars() {
         <Container>
           <Navbar.Brand href="/home">LadsStore</Navbar.Brand>
           <Nav className="ms-auto">
-            <Nav.Link onClick={()=> navigate('/home')}>Home</Nav.Link>
+            <Nav.Link onClick={()=> navigate(`/home/${userId}`)}>Home</Nav.Link>
             <NavDropdown  title="Catalogue" id="basic-nav-dropdown">
                 {tempData.map(catologue =>(
                     <NavDropdown.Item  onClick={()=>handleReload(catologue)}  key={catologue} >{catologue}</NavDropdown.Item>

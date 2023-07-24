@@ -5,11 +5,11 @@ export default function DetailStuff({title,image,description,price,rating}) {
     const [stuff, setStuff] = useState(0)
 
     const addStuff = () =>{
-        setStuff(stuff+1)
+        setStuff(stuff + 1)
     }
     const minStuff = () =>{
-        setStuff(stuff-1)
-        stuff <= 0 ? setStuff(0) : setStuff(0)
+        setStuff(stuff => stuff - 1)
+        stuff < 0 ? setStuff(0) : setStuff(0)
     }
 
   return (

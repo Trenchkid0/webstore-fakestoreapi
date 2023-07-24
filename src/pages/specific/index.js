@@ -20,9 +20,9 @@ export default function Electronic() {
     }, [])
 
   
+  
   return (
     <>
-    <Navbars/>
     <div className='flex flex-wrap'>
 
       {tempData.map(infoStore =>(
