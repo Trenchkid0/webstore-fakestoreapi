@@ -4,18 +4,14 @@ import { useParams } from 'react-router-dom';
 import { Anchor } from 'react-bootstrap';
 
 import axios from 'axios';
-import CardStore from '../../components/CardStore';
 import CartPage from '../../components/CartPage';
 
 
 export default function Cart() {
     const [tempData, setData] = useState();
     const [tempProducts, setTempProducts] = useState([])
-    const [totalCheck, setTotalCheck] = useState(0)
 
     const {cartId} = useParams();
-
-
 
 
     useEffect(() => {
@@ -35,7 +31,6 @@ export default function Cart() {
     }, [])
 
     let total = 0;
-    // setTotalCheck(totalCheck);
     tempData?.map(products => (
         tempProducts.map(stuff =>  (
         products.productId === stuff.id ? (
@@ -48,14 +43,6 @@ export default function Cart() {
         ))
 
     ))
-
-    console.log(tempProducts)
-    const handleSubmit = ()=>{
-        
-    }
-
-                
-    
                 
   return (
     <>
@@ -63,19 +50,54 @@ export default function Cart() {
           <div className='flex'>
       <div className='flex flex-wrap flex-col '>
 
-        {tempData?.map(products => (
-            tempProducts.map(stuff =>  (
-            products.productId === stuff.id ? (
+        
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Product name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Quantity
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Each Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Total
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        
 
-            <div key={stuff._id} className="">
-            <CartPage dataProducts={stuff} dataCart={products} /> 
-          </div>
+            {tempData?.map(products => (
+                tempProducts.map(stuff =>  (
+                products.productId === stuff.id ? (
 
-        ) : (
-            ''
-        )
-    ))
-   ))}
+                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                        <CartPage dataProducts={stuff} dataCart={products} /> 
+            
+                    </tr>    
+            
+
+            ) : (
+                ''
+            )
+        ))
+    ))}
+
+        </tbody>
+        
+        
+        
+    </table>
+</div>
+
+
+        
 
 
       </div>

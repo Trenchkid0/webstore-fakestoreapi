@@ -1,28 +1,30 @@
 import React from 'react'
-import { Anchor } from 'react-bootstrap'
-import { useState,useEffect } from 'react'
+import { Image } from 'react-bootstrap'
+
 
 export default function CartPage({dataProducts,dataCart}) {
     let eachTotal =  dataProducts.price * dataCart.quantity;    
 
   return (
-    <div  className='flex'>
-
-        <div>
-            <img className='h-52 w-10' src={dataProducts.image}/>
-        </div>
-        <div className='flex flex-col'>
-            <div className='flex'>
-                <button>+</button>
-                <input className='text-center w-10' value={dataCart.quantity}/>
-                <button>-</button>  
-
-                <p className='mx-5'>$ {dataProducts.price }</p>
-                <p className='mx-5'>$ {eachTotal}</p>
-            </div>
+    <>
+                <th scope="row" class="px-6 w-56 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <Image className='h-52 w-10' src={dataProducts.image}/>
+                    
+                </th>
+                <td class="px-6 py-4 text-center">
+                    {dataCart.quantity}
+                </td>
+                <td class="text px-6 py-4">
+                {dataProducts.title}
+                </td>
+                <td class="px-6 py-4">
+                    {eachTotal}
+                </td>
+                
+    
+    </>
+    
         
-        </div>
-    </div>
     
 
   )
