@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Login from '../pages/login';
 import Navbars from '../components/Navbar';
+import Signup from '../pages/signup';
 
 import {HomeRoute} from './HomeRoutes';
 import { SpecificRoute } from './SpecificRoutes';
@@ -20,6 +21,18 @@ export function AppRoutes() {
             <GuestOnlyRoute>
 
               <Login />
+
+            </GuestOnlyRoute>
+              
+
+          }
+        />
+        <Route
+          path='signup'
+          element={
+            <GuestOnlyRoute>
+
+              <Signup />
 
             </GuestOnlyRoute>
               

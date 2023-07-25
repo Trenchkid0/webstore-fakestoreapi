@@ -24,13 +24,9 @@ export default function Detail() {
     <>
     <div className='flex flex-wrap'>
 
-        {/* <div key={tempData.id} className=""> */}
+      
           <DetailStuff {...tempData} />      
-        {/* </div> */}
-    
-      {/* {tempData.map(infoStore =>(
-
-      ))} */}
+       
 
     </div>
   </>

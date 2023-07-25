@@ -9,13 +9,13 @@ export default function DetailStuff({title,image,description,price,rating}) {
     }
     const minStuff = () =>{
         setStuff(stuff => stuff - 1)
-        stuff < 0 ? setStuff(0) : setStuff(0)
+        stuff <= 0 && setStuff(0)
     }
 
   return (
-    <div classNameName='flex items-center justify-center h-screen '>
+    <div classNameName='flex items-center justify-center h-screen  '>
 
-<div className="flex font-sans ml-10">
+<div className="flex font-sans ml-10 mt-10">
   <div className="flex-none w-48 relative">
     <img src={image}  alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
   </div>
